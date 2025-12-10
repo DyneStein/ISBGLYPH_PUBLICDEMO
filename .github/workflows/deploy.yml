@@ -31,6 +31,8 @@ jobs:
       - name: Patch SFML for Emscripten
         run: |
           sed -i '1s/^/set(EMSCRIPTEN ON)\nset(SFML_OS_EMSCRIPTEN 1)\n/' sfml_src/CMakeLists.txt
+          sed -i '1s/^/set(SFML_OS_EMSCRIPTEN 1)\n/' sfml_src/cmake/Config.cmake
+          sed -i 's/message(FATAL_ERROR/message(STATUS/g' sfml_src/cmake/Config.cmake
 
       - name: Setup Emscripten
         uses: mymindstorm/setup-emsdk@v14
