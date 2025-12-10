@@ -28,6 +28,10 @@ jobs:
           path: sfml_src
           submodules: recursive
 
+      - name: Patch SFML for Emscripten
+        run: |
+          sed -i '1s/^/set(EMSCRIPTEN ON)\nset(SFML_OS_EMSCRIPTEN 1)\n/' sfml_src/CMakeLists.txt
+
       - name: Setup Emscripten
         uses: mymindstorm/setup-emsdk@v14
 
@@ -61,6 +65,7 @@ jobs:
                -s ALLOW_MEMORY_GROWTH=1 \
                -s WASM=1 \
                -s FULL_ES3=1 \
+               -s USE_GLFW=3 \
                --preload-file assets \
                -std=c++17 \
                -O3 
