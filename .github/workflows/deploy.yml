@@ -33,7 +33,16 @@ jobs:
       - name: Build SFML
         run: |
           cd sfml_src
-          emcmake cmake -B build -DCMAKE_BUILD_TYPE=Release -DSFML_BUILD_AUDIO=ON -DSFML_BUILD_GRAPHICS=ON -DSFML_BUILD_WINDOW=ON -DSFML_BUILD_NETWORK=ON -DSFML_BUILD_EXAMPLES=OFF -DSFML_BUILD_DOC=OFF
+          emcmake cmake -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_SYSTEM_NAME=Emscripten \
+            -DEMSCRIPTEN=ON \
+            -DSFML_BUILD_AUDIO=ON \
+            -DSFML_BUILD_GRAPHICS=ON \
+            -DSFML_BUILD_WINDOW=ON \
+            -DSFML_BUILD_NETWORK=ON \
+            -DSFML_BUILD_EXAMPLES=OFF \
+            -DSFML_BUILD_DOC=OFF
           cmake --build build --config Release
           cmake --install build --prefix ../sfml_install
 
