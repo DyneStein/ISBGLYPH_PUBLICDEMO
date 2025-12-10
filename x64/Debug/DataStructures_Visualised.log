@@ -1,0 +1,24 @@
+﻿  main.cpp
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\GameMap.h(46,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\UI.h(38,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\UI.h(44,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\UI.h(77,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\UI.h(113,38): error C2661: 'sf::Rect<float>::Rect': no overloaded function takes 4 arguments
+  (compiling source file 'main.cpp')
+      C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\UI.h(113,38):
+      while trying to match the argument list '(float, float, float, float)'
+  
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\Game.h(138,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
+C:\Mac\Home\Desktop\DS_for_VS\DataStructures_Visualised\DataStructures_Visualised\include\Game.h(139,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file 'main.cpp')
+  
