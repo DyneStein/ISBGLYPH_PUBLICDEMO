@@ -17,22 +17,39 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Project
         uses: actions/checkout@v4
+
+      - name: Checkout SFML
+        uses: actions/checkout@v4
+        with:
+          repository: SFML/SFML
+          ref: master
+          path: sfml_src
 
       - name: Setup Emscripten
         uses: mymindstorm/setup-emsdk@v14
 
-      - name: Build
+      - name: Build SFML
+        run: |
+          cd sfml_src
+          emcmake cmake -B build -DCMAKE_BUILD_TYPE=Release -DSFML_BUILD_AUDIO=ON -DSFML_BUILD_GRAPHICS=ON -DSFML_BUILD_WINDOW=ON -DSFML_BUILD_NETWORK=ON -DSFML_BUILD_EXAMPLES=OFF -DSFML_BUILD_DOC=OFF
+          cmake --build build --config Release
+          cmake --install build --prefix ../sfml_install
+
+      - name: Build Project
         run: |
           mkdir -p public
-          # Compile using Emscripten
+          # Compile using Emscripten with linked SFML
           emcc web/web_main.cpp \
                -I include \
+               -I sfml_install/include \
+               -L sfml_install/lib \
                -o public/index.html \
-               -s USE_SFML=1 \
+               -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network \
                -s ALLOW_MEMORY_GROWTH=1 \
                -s WASM=1 \
+               -s FULL_ES3=1 \
                --preload-file assets \
                -std=c++17 \
                -O3 
