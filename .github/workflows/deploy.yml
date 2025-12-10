@@ -30,7 +30,6 @@ jobs:
 
       - name: Patch SFML for Emscripten
         run: |
-          sed -i '1s/^/set(EMSCRIPTEN ON)\nset(SFML_OS_EMSCRIPTEN 1)\n/' sfml_src/CMakeLists.txt
           sed -i '1s/^/set(SFML_OS_EMSCRIPTEN 1)\n/' sfml_src/cmake/Config.cmake
           sed -i 's/message(FATAL_ERROR/message(STATUS/g' sfml_src/cmake/Config.cmake
 
@@ -45,6 +44,8 @@ jobs:
             -DCMAKE_SYSTEM_NAME=Emscripten \
             -DEMSCRIPTEN=ON \
             -DSFML_OS_EMSCRIPTEN=1 \
+            -DCMAKE_CXX_FLAGS="-s USE_FREETYPE=1 -s USE_GLFW=3 -s USE_AL=1" \
+            -DCMAKE_EXE_LINKER_FLAGS="-s USE_FREETYPE=1 -s USE_GLFW=3 -s USE_AL=1" \
             -DSFML_BUILD_AUDIO=ON \
             -DSFML_BUILD_GRAPHICS=ON \
             -DSFML_BUILD_WINDOW=ON \
